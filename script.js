@@ -33,10 +33,10 @@ function agregarLibro(nuevoLibro){
   });
 
   //si el libro no esta repetido lo agrega y sino, sale una alerta
-  if (!repetido) {
-  	$('#lista-dispo').append('<p class="creado">' + nuevoLibro.titulo + '</p>');
-    libros.push(nuevoLibro);
+  if (repetido) {
   }else {
+    $('#lista-dispo').append('<p class="creado">'+nuevoLibro.titulo+'</p>');
+    libros.push(nuevoLibro);
   }
 }
 
@@ -54,11 +54,7 @@ $(document).ready(function(){
 			        consulta.elements[0].value = seleccionado.titulo;
 			        consulta.elements[1].value = seleccionado.autor;
 			        consulta.elements[2].value = seleccionado.isbn;
-
-			        $('#generos').html('');
-			        for (var i = 0; i < seleccionado.generos.length; i++) {
-			        	$('#generos').append('<p class="seleccionado">'+ seleccionado.generos[i]+ '</p>');
-          }
+              consulta.elements[3].value = seleccionado.generos;
           //alert(seleccionado.titulo);
 				}
 			}
@@ -68,24 +64,17 @@ $(document).ready(function(){
 
 //añadir el libro al clickar en el boton de añadir
 function anadir(){
-$('#anadir').click(function(){
     var form = document.getElementById('nuevo');
     var titulo = form.elements[0].value;
     var autor = form.elements[1].value;
     var isbn = form.elements[2].value;
-    
     var generos = [];
 
 //esto es para que coja todos los checkboxes y no solo el primero
 
-    $('#checkboxes').each(function(){
-      if($(this).prop('checked')){
-        generos.push($(this).val());
-      }
-    });
+   
     var nuevoLibro = new Libro(titulo,autor,isbn,generos);
     agregarLibro(nuevoLibro);
-  });
 }
 function prestarLibro(libro){
     $('.prestados p').each(function(){
