@@ -48,7 +48,6 @@ $(document).ready(function(){
 				var consulta = document.getElementById('consulta');
 				var seleccionado = libros[i];
 				if (consulta.elements[0].value == seleccionado.titulo) {
-					alert('Ya está seleccionado');
 				}else{
 					$(this).removeClass('creado');
 			        $(this).addClass('seleccionado');
@@ -60,7 +59,7 @@ $(document).ready(function(){
 			        for (var i = 0; i < seleccionado.generos.length; i++) {
 			        	$('#generos').append('<p class="seleccionado">'+ seleccionado.generos[i]+ '</p>');
           }
-          alert(seleccionado.titulo);
+          //alert(seleccionado.titulo);
 				}
 			}
 		}
@@ -68,6 +67,7 @@ $(document).ready(function(){
 });
 
 //añadir el libro al clickar en el boton de añadir
+function anadir(){
 $('#anadir').click(function(){
     var form = document.getElementById('nuevo');
     var titulo = form.elements[0].value;
@@ -86,6 +86,7 @@ $('#anadir').click(function(){
     var nuevoLibro = new Libro(titulo,autor,isbn,generos);
     agregarLibro(nuevoLibro);
   });
+}
 function prestarLibro(libro){
     $('.prestados p').each(function(){
       if($(this).html() == libro.titulo){
