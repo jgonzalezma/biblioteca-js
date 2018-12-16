@@ -75,8 +75,6 @@ $(document).ready(function(){
         var libroSeleccionado = libros[i];
         var consultarLibro = document.getElementById('consulta');
         if(consultarLibro.elements[0].value == libroSeleccionado.titulo){
-          alert('Este libro ya esta seleccionado');
-
         }else{
           $(this).removeClass('prestados');
           $(this).addClass('seleccionado');
