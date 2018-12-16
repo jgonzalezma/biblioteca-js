@@ -4,14 +4,15 @@
 		<link href="estilo.css?6" type="text/css" rel="stylesheet" />
 		<script src="jquery-3.3.1.min.js"></script>
   		<script src="popper.min.js"></script>
-		<script src="script.js"></script>		
+		<script src="script.js"></script>
+		<script src="validate.js"></script>		
 	</head>
 	<body>
 		<div class = "container">
 				<form id="nuevo" action="#" class="quad">
 					<h1 class="titulo">Nuevo Libro <img src="img_trans.gif" class="icono icono_nuevo"></h1>
-					<p><label>Título:</label><input type="text" name="titulo" class="largo" required></p>
-					<p><label>Autor:</label><input type="text" name="autor" class="largo" required></p>
+					<p><label>Título:</label><input type="text" name="titulo" class="largo"></p>
+					<p><label>Autor:</label><input type="text" name="autor" class="largo"</p>
 					<p><label>ISBN:</label><input type="number" name="isbn" class="largo"></p>
 					<p><label>Géneros:</label></p>
 					<div id="checkboxes">
@@ -32,7 +33,7 @@
 					<p><label>Título:</label><input type="text" name="titulo" class="largo" disabled></p>
 					<p><label>Autor:</label><input type="text" name="autor" class="corto" disabled><label>ISBN:</label><input type="number" name="isbn" class="corto" disabled></p>
 					<p><label>Géneros:</label></p>
-					<textarea readonly id="generos" class="generos"></textarea> 
+					<div id="generos-consulta"></div>
 					<p><label>Prestado a:</label><br/><input type="email" name="mail" class="largo" id="prestado_a"></p>
 					<input id="devolver" type="submit" value="Devolver"><input id="prestar" type="submit" value="Prestar">
 				</form>
@@ -46,7 +47,6 @@
 				<div id="prestados" class="quad">
 					<h1 class="titulo">Préstamos <img src="img_trans.gif" class="icono icono_prestados"></h1>
 					<div id="lista-prest" class="lista">
-						<p class="prestado">El aprendiz de guerrero (prestado)</p>
 					</div>
 				</div>
 			</div><!--container-->
